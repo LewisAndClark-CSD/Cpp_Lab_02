@@ -35,12 +35,11 @@ int _tmain(int argc, _TCHAR* argv[])
 	int to_end = 0;
 	srand((unsigned)time(0));
 
-	while (to_end == 0){
+	while (to_end != 1){
 		cout << endl << "Your roll: ";
 		cin >> roll >> sides >> modifier;
 		if (roll == 1 && sides == 1 && modifier == 1){
-			to_end == 1;
-			cout << "suppose to end";
+			to_end = 1;
 		}
 		else{
 			roll_clone = roll;
