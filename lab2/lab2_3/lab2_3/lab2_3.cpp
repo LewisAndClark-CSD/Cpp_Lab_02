@@ -30,19 +30,32 @@ int _tmain(int argc, _TCHAR* argv[])
 	int roll = 0;
 	int sides = 0;
 	int modifier = 0;
-	int num = 0;
+	int total = 0;
+	int roll_clone = 0;
+	int to_end = 0;
 	srand((unsigned)time(0));
 
-	while (roll != 1 && sides != 1 && modifier != 1){
+	while (to_end == 0){
 		cout << endl << "Your roll: ";
 		cin >> roll >> sides >> modifier;
-
-		cout << "Results: ";
-		for (int i = 0; i >= roll; ++i){
-			num = (rand() % sides) + 1;
-			cout << num;
+		if (roll == 1 && sides == 1 && modifier == 1){
+			to_end == 1;
+			cout << "suppose to end";
 		}
+		else{
+			roll_clone = roll;
+			while (roll_clone >= 1){
+				total += (rand() % sides) + 1 + modifier;
+				--roll_clone;
+			}
+			cout << "Rolled a " << sides << " sided die " << roll << " times for a total of " << total;
+			total = 0;
+		}
+
 	}
+	cout << "End of program.";
+	cin.ignore();
+	cin.ignore();
 
 	return 0;
 }
